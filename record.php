@@ -1,7 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Stream downloader</title>
+</head>
+<body>
 <?php
-// Include base.html where style and script is included
-require_once __DIR__ . '/base.html';
-require_once __DIR__ . '/Recorder.php';
+require_once __DIR__ . '/logic/Recorder.php';
 
 $config = include __DIR__ . '/config/config.php';
 // Instantiate Recorder class with config
@@ -27,6 +35,8 @@ $fileName = $recorder->createFileName($videoName);
 $recorder->recordStream($hlsLink, $fileName);
 
 // After everything is done tell that record is done
-echo '<br>Download done. Filename: ' . $fileName;
+echo '<br>Download done. Filename: '. $fileName.'<br><a href="'.$config['domain'].'view.php?video='.$fileName.'">Open</a>';
 
 ?>
+</body>
+</html>

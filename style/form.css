@@ -1,4 +1,4 @@
-:root{
+:root {
     --outer-box-border-radius: 20px;
     --input-boder-radius: 10px;
     --formColor: black;
@@ -17,7 +17,7 @@
 
 }
 
-.blueForm input, .blueForm textarea, .blueForm select, .blueForm textarea,.consoleOutputSelect {
+.blueForm input, .blueForm textarea, .blueForm select, .blueForm textarea, .consoleOutputSelect {
     width: 100%;
     padding: 8px;
     margin-top: 4px;
@@ -56,23 +56,24 @@
     border: 2px solid var(--formColor);
     outline: none;
 }
+
 .formLabel, .blueForm label {
-     margin-top: 15px;
-     margin-left: 4px;
-     margin-bottom: 4px;
-     vertical-align: top;
-     display: block;
- }
+    margin-top: 15px;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    vertical-align: top;
+    display: block;
+}
 
 .blueForm label:first-child {
     margin-top: 5px;
 }
 
-.wrongCredInput{
+.wrongCredInput {
     border: 2px solid #c0000a;
 }
 
-.errSpan{
+.errSpan {
     color: #c0000a;
 }
 
@@ -83,8 +84,18 @@
     float: right;
     /*font-size: 90%;*/
 }
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
+}
+
+@media screen and (max-width: 800px) {
+    .formBox {
+        box-sizing: border-box;
+        min-width: 162px; /* The width is 100%, when the viewport is 800px or smaller */
+        width: 92%;
+        margin: 1%;
+    }
 }

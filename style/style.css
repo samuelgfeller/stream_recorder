@@ -1,11 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 *{
-  font-family:'Open Sans', sans-serif;;
+  font-family:'Open Sans', sans-serif;
 }
 
 .consoleOutputSelect{
     width: 65%;
     height: 65%;
-    min-width: 650px;
+    min-width: 300px;
+}
+
+.videoContainer{
+    width: 70%;
+    margin: 30px auto;
+}
+
+video{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+pre{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    overflow-y: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    background: #efefef;
+    /*border: 1px solid #777;*/
+    color: #333;
+
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        min-width: 162px; /* The width is 100%, when the viewport is 800px or smaller */
+        width: 94%;
+        margin: 3%;
+    }
+    pre{
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    .consoleOutputSelect{
+        width: 100%;
+    }
+    .videoContainer{
+        width: 100%;
+    }
 }

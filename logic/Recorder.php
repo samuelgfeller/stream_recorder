@@ -107,16 +107,15 @@ class Recorder
             2 => ['pipe', 'w'],  // stderr
         );
 
-// ffmpeg command
+        // ffmpeg command
         $ffmpeg = 'ffmpeg -re -i "' . $hlsLink . '" -t '.$this->config['max_record_time'].' -c copy ' . escapeshellcmd($fileName);
 
-        // Set execution time limit up to the given max record time + 60 seconds for overhead
-        set_time_limit($this->config['max_record_time'] + 60);
+// Set execution time limit up to the given max record time + 60 seconds for overhead
+set_time_limit($this->config['max_record_time'] + 60);
 
-// Execute the command and get the process
+        // Execute the command and get the process
         $process = proc_open($ffmpeg, $descriptorspec, $pipes);
         if (is_resource($process)) {
-
             while ($s = fgets($pipes[2])) {
                 // Remove newlines because somehow it doesn't get populated if there is a newline
                 $s = str_replace(["\r", "\n"], '', $s);
