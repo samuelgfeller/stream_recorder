@@ -20,7 +20,7 @@ $url = $_POST['youtube_url'];
 $videoName = $recorder->getVideoName($url);
 ?>
 
-<h1><?= $videoName ?></h1>
+<h1>Downloading <?= $videoName ?></h1>
 <textarea disabled id="consoleOutput" class="consoleOutputSelect" cols="30" rows="20"></textarea>
 
 <script>let textarea = document.getElementById("consoleOutput");

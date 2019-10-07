@@ -95,7 +95,7 @@
     .formBox {
         box-sizing: border-box;
         min-width: 162px; /* The width is 100%, when the viewport is 800px or smaller */
-        width: 92%;
+        width: 98%;
         margin: 1%;
     }
 }
