@@ -1,6 +1,7 @@
 <?php
 return [
-    'download_directory' => 'downloads/',
+    'video_directory' => 'downloads/videos/',
+    'thumbnail_directory' => 'downloads/thumbnails/',
     'video_extension' => '.mp4',
     'max_record_time' => 20,
     // domain with trailing slash

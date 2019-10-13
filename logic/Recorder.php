@@ -11,6 +11,22 @@ class Recorder
     }
 
     /**
+     * Create the download directories if they don't exist
+     */
+    public function createDownloadDirectories()
+    {
+        if (!file_exists($this->config['video_directory']) && !mkdir($concurrentDirectory = $this->config['video_directory'],
+                0777, true) && !is_dir($concurrentDirectory)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        }
+        if (!file_exists($this->config['thumbnail_directory']) && !mkdir($concurrentDirectory = $this->config['thumbnail_directory'],
+                0777, true) && !is_dir($concurrentDirectory)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        }
+
+    }
+
+    /**
      * Retrieve the video name from a given Youtube URL
      *
      * @param $url
@@ -56,12 +72,12 @@ class Recorder
         $fileName = str_replace(' ', '-', $videoName); // Replaces all spaces with hyphens.
         $fileName = preg_replace('/[^A-Za-z0-9\-]/', '', $fileName); // Removes special chars.
         $fileName = preg_replace('/-+/', '-', $fileName); // Replaces multiple hyphens with single one.
-        $fullFileName = $this->config['download_directory'] . $fileName . $this->config['video_extension']; // Set final file name with path and extension
+        $fullFileName = $this->config['video_directory'] . $fileName . $this->config['video_extension']; // Set final file name with path and extension
 
         // https://stackoverflow.com/a/16136562/9013718
         $i = 1;
         while (file_exists($fullFileName)) {
-            $fullFileName = $this->config['download_directory'] . $fileName . $i . $this->config['video_extension'];
+            $fullFileName = $this->config['video_directory'] . $fileName . $i . $this->config['video_extension'];
             $i++;
         }
         return $fullFileName;
@@ -130,5 +146,18 @@ set_time_limit($this->config['max_record_time'] + 60);
         $ffmpegOut2 = stream_get_contents($pipes[2]);
         fclose($pipes[2]);
         $ret = proc_close($process);
+    }
+
+    /**
+     * Makes a snapshot at 0.1 seconds in the video and
+     * saves it as jpg to use it as thumbnail
+     *
+     * @param $videoFullName string name with path
+     */
+    public function createThumbnail(string $videoFullName)
+    {
+        $videoNameParts = pathinfo($videoFullName);
+        $thumbnail = $this->config['thumbnail_directory']. $videoNameParts['filename'].'.jpg';
+        shell_exec("ffmpeg -i $videoFullName -deinterlace -an -ss 1 -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $thumbnail 2>&1");
     }
 }

@@ -18,6 +18,8 @@ $recorder = new Recorder($config);
 $url = $_POST['youtube_url'];
 
 $videoName = $recorder->getVideoName($url);
+
+$recorder->createDownloadDirectories();
 ?>
 
 <h1>Downloading <?= $videoName ?></h1>
@@ -33,6 +35,8 @@ $fileName = $recorder->createFileName($videoName);
 
 // Record stream and live output
 $recorder->recordStream($hlsLink, $fileName);
+
+$recorder->createThumbnail($fileName);
 
 // After everything is done tell that record is done
 echo '<br>Download done. Filename: '. $fileName.'<br><a href="'.$config['domain'].'view.php?video='.$fileName.'">Open</a>';

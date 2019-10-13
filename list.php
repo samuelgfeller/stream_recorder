@@ -8,14 +8,24 @@
 </head>
 <body>
 <h1>Downloaded streams</h1>
-<?php
-$config = include __DIR__ . '/config/config.php';
+<div class="thumbnailContainer">
+    <?php
+    $config = include __DIR__ . '/config/config.php';
 
-$files = array_diff(scandir($config['download_directory']), ['.', '..']);
-foreach($files as $file){
-    echo '<br><a href="'.$config['domain'].'view.php?video='.$config['download_directory'].$file.'">'.$file.'</a><br>';
-}
-?>
+    // Get all files from video directory
+    $files = array_diff(scandir($config['video_directory']), ['.', '..']);
+    foreach ($files as $file) {
+        $thumbnailPath = $config['thumbnail_directory'] . pathinfo($file, PATHINFO_FILENAME) . '.jpg';
+        echo '<div class="thumbnail">
+    <a href="' . $config['domain'] . 'view.php?video=' . $config['video_directory'] . $file . '">
+        <img class="thumbnailImg" src="' . $thumbnailPath . '" alt="thumbnail">
+     
+    <span>' . $file . '</span>
+    </a>
+    </div>';
+    }
+    ?>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
