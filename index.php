@@ -9,6 +9,8 @@
 </head>
 <body>
 <h1>Youtube live stream recorder</h1>
+<a href="list.php"><button>Gallery</button></a><br><br>
+
 <div class="formBox">
     <form action="record.php" method="post" class="blueForm">
         <label for="urlInput">Stream URL</label>

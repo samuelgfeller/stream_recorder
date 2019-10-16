@@ -8,6 +8,8 @@
     <title>Stream downloader</title>
 </head>
 <body>
+<a href="index.php"><button>Home</button></a>
+<a href="list.php"><button>Gallery</button></a><br><br>
 <?php
 require_once __DIR__ . '/logic/Recorder.php';
 

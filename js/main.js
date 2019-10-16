@@ -1,24 +1,22 @@
-/**
- *
- * @param table Table where it should search
- * @param row starting by 0! So 1 is the second row
- */
-function filter(table,row) {
-    var input, filter, tr, clientTd, i;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById(table);
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        clientTd = tr[i].getElementsByTagName("td")[row];
-        if (clientTd) {
-            if (clientTd.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
+
+
+document.getElementById('videoNameInput').addEventListener("keyup", filter);
+
+function filter()
+{
+    let input = document.getElementById('videoNameInput').value.toUpperCase();
+    let container = document.getElementById('thumbnailContainer');
+    let thumbnails = container.getElementsByClassName('thumbnail');
+
+    for (let i = 0; i < thumbnails.length; i++) {
+        // Get (first) span below i'th span
+        let span = thumbnails[i].getElementsByTagName('span')[0];
+        let txtValue = span.textContent || span.innerText;
+        if (txtValue.toUpperCase().indexOf(input) > -1) {
+            thumbnails[i].style.display = "";
+        } else {
+            thumbnails[i].style.display = "none";
         }
     }
-    $("tr").css({"background-color": "#FFF"});
-    $("tr:visible:odd").css({"background-color": "#f2f2f2"});
 }
+
