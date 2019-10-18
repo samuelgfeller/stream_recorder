@@ -15,7 +15,7 @@
 
 <div id="thumbnailContainer">
     <div class="nameSearch">
-        <input class="nameSearchInput" id="videoNameInput" type="text" placeholder="Search by name">
+        <input class="nameSearchInput" id="videoNameInput" type="text" placeholder="Search on current page">
     </div>
     <?php
     $config = include __DIR__ . '/config/config.php';
