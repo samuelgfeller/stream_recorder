@@ -50,8 +50,11 @@ pre {
 }
 
 .thumbnailImg {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
+}
+
+.thumbnailImg:hover{
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nameSearch {
@@ -78,6 +81,28 @@ pre {
     outline: none;
 }
 
+/*Pagination*/
+.pagination {
+    list-style-type: none;
+    margin: 25px;
+}
+
+.pagination > a {
+    text-align: center;
+    padding: 10px 15px;
+    display: inline;
+    text-decoration: none;
+    color: #000;
+    font-size: 17px;
+}
+
+.pagination > a:hover {
+    background-color: #f2f2f2;
+}
+
+.active {
+    background-color: #e6e6e6;
+}
 
 @media screen and (max-width: 800px) {
     body {

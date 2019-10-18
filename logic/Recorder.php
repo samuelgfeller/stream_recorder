@@ -23,7 +23,10 @@ class Recorder
                 0777, true) && !is_dir($concurrentDirectory)) {
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
         }
-
+        if(!file_exists($this->config['thumbnail_directory'].'thumbnail_not_found.jpg')){
+            $img = $this->config['thumbnail_directory'].'thumbnail_not_found.jpg';
+            file_put_contents($img, file_get_contents($this->config['thumbnail_not_found_url']));
+        }
     }
 
     /**
