@@ -49,18 +49,34 @@ abgespeichert wurde und der Dateinamen.
 * Nach dem Download wird vorgeschalgen das Video direkt zu öffnen. 
 
 ### Kompetenz 5C
-Das Projekt wurde mit GitHub Projects geplant und durchgeführt. Es wurde im Zweiten Teil mit issues gearbeitet.  
+Das Projekt wurde mit GitHub Projects geplant und verfolgt. Es wurde im Zweiten Teil mit issues gearbeitet.  
 [Hier](https://github.com/samuelgfeller/stream_recorder/projects/1) ist die Planung zu finden. 
   
 **Ausführlichere Informationen über die Umsetzung und dem Inhalt des Projkets sowie dem Featureumfang sind in meinem Lernjournal 
 zu finden.**
 
 ## Installation 
-Coming soon..
-Installationsanleitung
-Beschreibt die Inbetriebnahme detailliert und Betriebssystemunabhängig.
+> Beschreibt die Inbetriebnahme detailliert und Betriebssystemunabhängig.  
+[XAMPP](https://www.apachefriends.org/de/download.html) muss auf dem Computer im Vorfeld installiert sein.
+### Code herunterladen
+Dieses Repository Klonen oder als ZIP herunterladen und dann in den htdocs Ordner Ziehen. 
+
+### Bibliotheken hinzufügen 
+Der **\lib\\** Ordner im Projektordner muss zu den PATH-Umgebungsvariablen hinzugefügt werden. 
+#### Windows
+Die installation auf Windows ist unterschiedlich als diejenige auf macOS. Hier ist eine [Windows Anleitung](https://docs.alfresco.com/4.2/tasks/fot-addpath.html) 
+um Umgebungsvariablen hinzuzufügen. Dort muss der \lib\-Ordner hinzugefüt werden. Bei mir sieht er so aus: 
+C:\xampp\htdocs\stream_recorder\lib\  
+[Hier](https://imgur.com/FjAhH0P) ist eine graphische Sicht der Einstellungen bei mir (auf Windows).
+
+#### macOS
+Es ist schwierig für mich eine Anleitung für macOS zu machen da ich keinen Besitze und sehr wenig Erfahrung damit habe. 
+[Hier](https://www.aptgetupdate.de/2017/08/30/macos-tipp-path-variable-anzeigen-und-ndern/) ist eine Anleitung auf Deutsch welche 
+gut aussieht. Dort muss der muss der \lib\-Ordner hinzugefüt werden.
 
 ## Technical documentation
 Coming soon..
 technische Projektdokumentation (als PDF)
 Beschreibt die technische Umsetzung der im Kompetenzraster geforderten technischen Kompetenzen
+
+
