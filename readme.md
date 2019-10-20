@@ -1,7 +1,8 @@
 # Stream recorder 
 
 ## Installation 
-> Beschreibt die Inbetriebnahme detailliert und Betriebssystemunabhängig.  
+> Beschreibt die Inbetriebnahme detailliert und Betriebssystemunabhängig.    
+   
 [XAMPP](https://www.apachefriends.org/de/download.html) muss auf dem Computer im Vorfeld installiert sein.
 ### Code herunterladen
 Dieses Repository Klonen oder als ZIP herunterladen und dann in den htdocs Ordner Ziehen. 
