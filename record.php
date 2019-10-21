@@ -8,8 +8,8 @@
     <title>Stream downloader</title>
 </head>
 <body>
-<a href="index.php"><button>Home</button></a>
-<a href="list.php"><button>Gallery</button></a><br><br>
+<a href="index.php">Home</a>
+<a href="list.php">Gallery</a><br><br>
 <?php
 require_once __DIR__ . '/logic/Recorder.php';
 
@@ -40,9 +40,13 @@ $recorder->recordStream($hlsLink, $fileName);
 
 $recorder->createThumbnail($fileName);
 
+if (file_exists($fileName)) {
 // After everything is done tell that record is done
-echo '<br>Download done. Filename: '. $fileName.'<br><a href="'.$config['domain'].'view.php?video='.$fileName.'">Open</a>';
-
+    echo '<br>Download done. Filename: ' . $fileName . '<br><a href="' . $config['domain'] . 'view.php?video=' . $fileName . '">Open</a>';
+}
+else{
+    echo '<br>Something went wrong with the download. Try another Live stream maybe the access was unauthorized.';
+}
 ?>
 </body>
 </html>

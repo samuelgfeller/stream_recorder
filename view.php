@@ -7,8 +7,8 @@
     <title>Stream downloader</title>
 </head>
 <body>
-<a href="index.php"><button>Home</button></a>
-<a href="list.php"><button>Gallery</button></a><br><br>
+<a href="index.php">Home</a>
+<a href="list.php">Gallery</a><br><br>
 
 <?php
 if (isset($_GET['video'])) {

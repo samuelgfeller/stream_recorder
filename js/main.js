@@ -9,9 +9,9 @@ function filter()
     let thumbnails = container.getElementsByClassName('thumbnail');
 
     for (let i = 0; i < thumbnails.length; i++) {
-        // Get (first) span below i'th span
-        let span = thumbnails[i].getElementsByTagName('span')[0];
-        let txtValue = span.textContent || span.innerText;
+        // Get (first) p below i'th thumbnail
+        let p = thumbnails[i].getElementsByTagName('p')[0];
+        let txtValue = p.textContent || p.innerText;
         if (txtValue.toUpperCase().indexOf(input) > -1) {
             thumbnails[i].style.display = "";
         } else {

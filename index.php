@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Youtube live stream recorder</h1>
-<a href="list.php"><button>Gallery</button></a><br><br>
+<a href="list.php">Gallery</a><br><br>
 
 <div class="formBox">
     <form action="record.php" method="post" class="blueForm">

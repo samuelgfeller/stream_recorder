@@ -9,7 +9,7 @@
 <body>
 <h1>Downloaded streams</h1>
 <a href="index.php">
-    <button>Home</button>
+    Home
 </a><br><br>
 
 
@@ -31,6 +31,7 @@
     //calculate number of pages (ceil rounds up (5.1 = 6))
     $total_pages = ceil($total_records / $record_per_page);
 
+    // Find GET parameter which indicates the page number
     if (isset($_GET['page']) && is_numeric($_GET['page']) && !((int)$_GET['page'] < 1)) {
         $page = $_GET['page'];
     } else {
@@ -44,8 +45,8 @@
         <div class="pagination">
             <?php
             if ($page > 1) {
-                echo "<a href='" . $url . "?page=1'><<</a>";
-                echo "<a href='" . $url . '?page=' . ($page - 1) . "'><</a>";
+                echo "<a href='" . $url . "?page=1'>&lt;&lt;</a>";
+                echo "<a href='" . $url . '?page=' . ($page - 1) . "'>&lt;</a>";
             }
             for ($i = 1; $i <= $total_pages; $i++) {
                 $class = $i == $page ? 'active' : '';
@@ -61,24 +62,6 @@
 
     <?php
 
-
-    // Get all files from video directory
-
-
-    //    foreach ($files as $file) {
-    //        $thumbnailPath = $config['thumbnail_directory'] . pathinfo($file, PATHINFO_FILENAME) . '.jpg';
-    //        if (file_exists($thumbnailPath)) {
-    //            echo '<div class="thumbnail">
-    //             <a href="' . $config['domain'] . 'view.php?video=' . $config['video_directory'] . $file . '">
-    //                 <img class="thumbnailImg" src="' . $thumbnailPath . '" alt="thumbnail">
-    //
-    //             <span>' . $file . '</span>
-    //             </a>
-    //             </div>';
-    //        }
-    //    }
-    //    var_dump($files);
-    //    var_dump($start_from,$record_per_page);
     $filesToIterate = array_slice($files, $start_from, $record_per_page);
     //var_dump($filesToIterate);
     foreach ($filesToIterate as $file) {
@@ -90,7 +73,7 @@
              <a href="' . $config['domain'] . 'view.php?video=' . $config['video_directory'] . $file . '">
                  <img class="thumbnailImg" src="' . $thumbnailPath . '" alt="thumbnail">
               
-             <span>' . $file . '</span>
+             <p class="fileName">' . str_replace(['-','.mp4'],' ',$file) . '</p>
              </a>
              </div>';
     }

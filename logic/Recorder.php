@@ -23,8 +23,8 @@ class Recorder
                 0777, true) && !is_dir($concurrentDirectory)) {
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
         }
-        if(!file_exists($this->config['thumbnail_directory'].'thumbnail_not_found.jpg')){
-            $img = $this->config['thumbnail_directory'].'thumbnail_not_found.jpg';
+        if (!file_exists($this->config['thumbnail_directory'] . 'thumbnail_not_found.jpg')) {
+            $img = $this->config['thumbnail_directory'] . 'thumbnail_not_found.jpg';
             file_put_contents($img, file_get_contents($this->config['thumbnail_not_found_url']));
         }
     }
@@ -56,8 +56,8 @@ class Recorder
             echo $err;
         }
         curl_close($curl);
-
-        return json_decode($response, true)['title'];
+        $responseArr = json_decode($response, true);
+        return $responseArr['title'] ?? 'Live stream (title not found)';
     }
 
     /**
@@ -118,7 +118,8 @@ class Recorder
      * @param $hlsLink
      * @param $fileName
      */
-    public function recordStream($hlsLink, $fileName){
+    public function recordStream($hlsLink, $fileName)
+    {
         // indexed array where the key represents the descriptor number and the value represents how PHP will pass that descriptor to the child process
         $descriptorspec = array(
             0 => ['pipe', 'r'],  // stdin
@@ -127,10 +128,10 @@ class Recorder
         );
 
         // ffmpeg command
-        $ffmpeg = 'ffmpeg -re -i "' . $hlsLink . '" -t '.$this->config['max_record_time'].' -c copy ' . escapeshellcmd($fileName);
+        $ffmpeg = 'ffmpeg -re -i "' . $hlsLink . '" -t ' . $this->config['max_record_time'] . ' -c copy ' . escapeshellcmd($fileName);
 
-// Set execution time limit up to the given max record time + 60 seconds for overhead
-set_time_limit($this->config['max_record_time'] + 60);
+        // Set execution time limit up to the given max record time + 60 seconds for overhead
+        set_time_limit($this->config['max_record_time'] + 60);
 
         // Execute the command and get the process
         $process = proc_open($ffmpeg, $descriptorspec, $pipes);
@@ -160,7 +161,7 @@ set_time_limit($this->config['max_record_time'] + 60);
     public function createThumbnail(string $videoFullName)
     {
         $videoNameParts = pathinfo($videoFullName);
-        $thumbnail = $this->config['thumbnail_directory']. $videoNameParts['filename'].'.jpg';
+        $thumbnail = $this->config['thumbnail_directory'] . $videoNameParts['filename'] . '.jpg';
         shell_exec("ffmpeg -i $videoFullName -deinterlace -an -ss 1 -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $thumbnail 2>&1");
     }
 }
