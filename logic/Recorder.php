@@ -108,6 +108,7 @@ class Recorder
         echo 'Error command output doesn\'t start with expected http. <br><br>';
         echo 'Youtube-dl command: <br><pre><b>' . $youtubeDlCommand . '</b></pre><br>';
         echo 'Output: <br><pre><b>' . $output . '</b><pre><br>';
+        var_dump($output);
         die();
     }
 

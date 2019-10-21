@@ -10,17 +10,19 @@ Dieses Repository Klonen oder als ZIP herunterladen und dann in den htdocs Ordne
 ### 2. Bibliotheken hinzufügen 
 Der **\lib\\** Ordner im Projektordner muss zu den PATH-Umgebungsvariablen hinzugefügt werden. 
 #### Windows
-Die installation auf Windows ist unterschiedlich als diejenige auf macOS. Hier ist eine [Windows Anleitung](https://docs.alfresco.com/4.2/tasks/fot-addpath.html) 
-um Umgebungsvariablen hinzuzufügen. Dort muss der \lib\-Ordner hinzugefüt werden. Bei mir sieht er so aus: 
+Die Installation auf Windows ist anders als diejenige von macOS. Hier ist eine [Windows Anleitung](https://docs.alfresco.com/4.2/tasks/fot-addpath.html) 
+um Umgebungsvariablen hinzuzufügen. Dort muss den \lib\\-Ordner hinzugefüt werden. Bei mir sieht er so aus: 
 C:\xampp\htdocs\stream_recorder\lib\  
 [Hier](https://imgur.com/FjAhH0P) ist eine graphische Sicht der Einstellungen bei mir (auf Windows).
 
 #### macOS
 Es ist schwierig für mich eine Anleitung für macOS zu machen da ich keinen Mac besitze und sehr wenig Erfahrung damit habe. 
 [Hier](https://www.aptgetupdate.de/2017/08/30/macos-tipp-path-variable-anzeigen-und-ndern/) ist eine Anleitung auf Deutsch welche 
-gut aussieht. Es muss der muss der \lib\-Ordner im Projekt hinzugefüt werden.
+gut aussieht. Es muss der muss der \lib\\-Ordner im Projekt hinzugefüt werden.
 
-### 3. Frontend aufrufen
+### 3. Gerät neustarten
+
+### 4. Frontend aufrufen
 Jetzt kann in einem Browser der Pfad des Project roots geöffnet werden. Wenn das Projekt direkt im htdocs abgelegt wurde, 
 wird der link so aussehen: http://localhost/stream_recorder/index.php 
 
@@ -243,7 +245,7 @@ Die Pagination wurde mit PHP umgesetzt. Dies ist die Pagination-Funktion:
             }
             for ($i = 1; $i <= $total_pages; $i++) {
                 $class = $i == $page ? 'active' : '';
-                echo "<a class='" . $class . "' href='" . $url . '?page=' . $i . "'>" . $i . "</a>";
+                echo "<a class='" . $class . "' href='" . $url . '?page=' . $i . "'>" . $i . '</a>';
             }
             if ($page < $total_pages) {
                 echo "<a href='" . $url . '?page=' . ($page + 1) . "'>></a>";
@@ -253,6 +255,6 @@ Die Pagination wurde mit PHP umgesetzt. Dies ist die Pagination-Funktion:
         </div>
     </nav>
 ```
-### Kompetenz 5C
+
 
 
