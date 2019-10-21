@@ -18,9 +18,12 @@ C:\xampp\htdocs\stream_recorder\lib\
 #### macOS
 Es ist schwierig für mich eine Anleitung für macOS zu machen da ich keinen Mac besitze und sehr wenig Erfahrung damit habe. 
 [Hier](https://www.aptgetupdate.de/2017/08/30/macos-tipp-path-variable-anzeigen-und-ndern/) ist eine Anleitung auf Deutsch welche 
-gut aussieht. Es muss der muss der \lib\\-Ordner im Projekt hinzugefüt werden.
+gut aussieht. Es müssen die beiden Bibliotheken in dem \lib\\-Ordner gelöscht werden und ffmpeg ersetzt durch die mac Version.  
+[ffmpeg](https://ffmpeg.org/download.html)   
+Youtube-dl muss über die Konsole heruntergeladen werden wie [hier](https://ytdl-org.github.io/youtube-dl/download.html) beschrieben. 
 
 ### 3. Gerät neustarten
+Gerät neustarten aber ich denke Webserver stoppen und starten würde auch reichen. 
 
 ### 4. Frontend aufrufen
 Jetzt kann in einem Browser der Pfad des Project roots geöffnet werden. Wenn das Projekt direkt im htdocs abgelegt wurde, 
