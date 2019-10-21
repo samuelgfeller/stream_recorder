@@ -5,7 +5,7 @@
    
 [XAMPP](https://www.apachefriends.org/de/download.html) muss auf dem Computer im Vorfeld installiert sein.
 ### 1. Code herunterladen
-Dieses Repository Klonen oder als ZIP herunterladen und dann in den htdocs Ordner Ziehen. 
+Dieses Repository klonen oder als ZIP herunterladen und dann in den htdocs Ordner ziehen. 
 
 ### 2. Bibliotheken hinzufügen 
 Der **\lib\\** Ordner im Projektordner muss zu den PATH-Umgebungsvariablen hinzugefügt werden. 
